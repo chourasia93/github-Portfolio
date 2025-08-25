@@ -1,183 +1,116 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manish Kumar Chourasia | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-body {
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.6;
-  background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
-  color: #fff;
-}
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">Manish<span>Portfolio</span></div>
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="resume.pdf" download class="btn-download">Download CV</a>
+  </header>
 
-/* HEADER */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 60px;
-  background: rgba(0,0,0,0.6);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Hello, I'm <span>Manish Kumar Chourasia</span></h1>
+      <h2>Automation Testing Specialist | API Testing | UI Automation</h2>
+      <p>Focused and goal-oriented professional with 5+ years of experience in Automation Testing & Product Testing.</p>
+      <div class="hero-buttons">
+        <a href="#portfolio" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="profile.png" alt="Profile Picture">
+    </div>
+  </section>
 
-.header .logo {
-  font-size: 22px;
-  font-weight: 700;
-}
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>I specialize in automation testing, API testing, and framework design. Skilled in delivering high-quality test strategies and ensuring smooth software delivery.</p>
+    <ul>
+      <li>B.E. (EEE), Hindustan University, 2016</li>
+      <li>5+ Years of Experience</li>
+    </ul>
+  </section>
 
-.header .logo span {
-  color: #00c6ff;
-}
+  <!-- EXPERIENCE -->
+  <section id="experience" class="experience">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Test Scripts Creation</h3>
+        <p>Regression & end-to-end functionality coverage for multiple products.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Framework Design & Migration</h3>
+        <p>Created frameworks from scratch using Page Object Model; migrated legacy frameworks.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>API Testing</h3>
+        <p>Rest Assured, Postman, SOAP UI for endpoint validation.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>CI/CD & Project Management</h3>
+        <p>Azure DevOps pipelines, Jira/Rally for iteration tasks, code merges & reporting.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>UI Automation</h3>
+        <p>Selenium, Playwright, Cypress, WebDriverIO; BrowserStack for mobile testing.</p>
+      </div>
+    </div>
+  </section>
 
-.nav a {
-  margin: 0 15px;
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
+  <!-- SKILLS -->
+  <section id="skills" class="skills">
+    <h2>Skills & Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-card">Selenium</div>
+      <div class="skill-card">Playwright</div>
+      <div class="skill-card">Cypress</div>
+      <div class="skill-card">Java / JS / Python</div>
+      <div class="skill-card">Postman / SoapUI</div>
+      <div class="skill-card">Azure DevOps</div>
+      <div class="skill-card">GitHub</div>
+      <div class="skill-card">MongoDB</div>
+    </div>
+  </section>
 
-.nav a:hover {
-  color: #00c6ff;
-}
+  <!-- RESUME UPLOAD -->
+  <section class="resume-upload">
+    <h2>Upload Your Resume</h2>
+    <form action="#" method="post" enctype="multipart/form-data">
+      <input type="file" name="resume" accept=".pdf,.doc,.docx">
+      <button type="submit" class="btn-primary">Upload</button>
+    </form>
+  </section>
 
-.btn-download {
-  padding: 10px 20px;
-  background: #00c6ff;
-  color: #fff;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:chourasiamanish1993@gmail.com">chourasiamanish1993@gmail.com</a></p>
+    <p>Phone: <a href="tel:+919940314208">+91-9940314208</a></p>
+    <p><a href="https://www.linkedin.com/in/manish-k-271b9a194" target="_blank">LinkedIn</a> | 
+       <a href="https://github.com/chourasia93" target="_blank">GitHub</a></p>
+  </section>
 
-.btn-download:hover {
-  background: #0072ff;
-}
+  <footer>
+    <p>© 2025 Manish Kumar Chourasia | All Rights Reserved</p>
+  </footer>
 
-/* HERO */
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 80px 60px;
-  background: linear-gradient(135deg, #0072ff, #00c6ff);
-}
-
-.hero-content {
-  max-width: 50%;
-}
-
-.hero-content h1 span {
-  color: yellow;
-}
-
-.hero-content h2 {
-  font-weight: 400;
-  margin: 10px 0;
-}
-
-.hero-buttons .btn-primary, .btn-secondary {
-  margin-right: 15px;
-  padding: 12px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.btn-primary {
-  background: #ff9800;
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background: #e68900;
-}
-
-.btn-secondary {
-  border: 2px solid #fff;
-  color: #fff;
-}
-
-.btn-secondary:hover {
-  background: #fff;
-  color: #333;
-}
-
-.hero-img img {
-  width: 280px;
-  border-radius: 50%;
-  border: 6px solid #fff;
-}
-
-/* SECTION STYLES */
-section {
-  padding: 80px 60px;
-}
-
-h2 {
-  margin-bottom: 30px;
-  font-size: 2rem;
-  text-align: center;
-}
-
-/* EXPERIENCE TIMELINE */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.timeline-item {
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
-  border-left: 4px solid #00c6ff;
-  border-radius: 8px;
-}
-
-.timeline-item h3 {
-  color: #00c6ff;
-}
-
-/* SKILLS */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-}
-
-.skill-card {
-  background: rgba(255,255,255,0.1);
-  padding: 20px;
-  text-align: center;
-  border-radius: 12px;
-  transition: transform 0.3s;
-}
-
-.skill-card:hover {
-  transform: translateY(-8px);
-  background: #00c6ff;
-}
-
-/* RESUME UPLOAD */
-.resume-upload {
-  text-align: center;
-}
-
-.resume-upload input {
-  margin: 15px 0;
-}
-
-/* CONTACT */
-.contact {
-  text-align: center;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #111;
-  margin-top: 40px;
-}
+</body>
+</html>
