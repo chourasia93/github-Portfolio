@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manish Kumar Chourasia - Portfolio</title>
+  <title>Manish Kumar Chourasia | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    /* General Reset */
+    /* Global Styles */
     * {
       margin: 0;
       padding: 0;
@@ -14,236 +15,230 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
       line-height: 1.6;
     }
 
-    header {
-      text-align: center;
-      padding: 3rem 1rem;
-    }
-
-    header img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid #00c6ff;
-      margin-bottom: 1rem;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: #ddd;
-    }
-
-    nav {
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    nav a {
-      margin: 0 1rem;
+    a {
       text-decoration: none;
       color: #00c6ff;
-      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #1de9b6;
     }
 
     section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 3rem 1rem;
+      padding: 60px 10%;
     }
 
-    h2 {
+    h1, h2, h3 {
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #00c6ff;
+      background: linear-gradient(135deg, #1f1c2c, #928DAB);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .cta-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 25px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      border-radius: 30px;
+      color: #fff;
+      font-weight: 600;
+      transition: transform 0.3s ease;
+    }
+
+    .cta-buttons a:hover {
+      transform: scale(1.1);
     }
 
     /* About */
-    #about p {
-      text-align: center;
+    .about p {
+      max-width: 700px;
+      margin-bottom: 20px;
+    }
+
+    /* Experience */
+    .experience ul {
+      list-style: none;
+      padding-left: 0;
+      margin-left: 0;
+      border-left: 3px solid #00c6ff;
+    }
+
+    .experience li {
+      position: relative;
+      margin-bottom: 25px;
+      padding-left: 30px;
+    }
+
+    .experience li::before {
+      content: "";
+      position: absolute;
+      left: -8px;
+      top: 8px;
+      width: 14px;
+      height: 14px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      border-radius: 50%;
+    }
+
+    .experience strong {
       font-size: 1.1rem;
-      max-width: 800px;
-      margin: auto;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .experience p {
+      font-size: 0.95rem;
       color: #ddd;
     }
 
     /* Skills */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      text-align: center;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
     }
 
     .skill {
       background: rgba(255, 255, 255, 0.05);
-      padding: 1rem;
-      border-radius: 10px;
-      transition: transform 0.3s;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s ease;
     }
 
     .skill:hover {
       transform: translateY(-5px);
     }
 
-    /* Experience Timeline */
-    .timeline {
-      position: relative;
-      margin: 2rem 0;
-      padding-left: 40px;
-      border-left: 3px solid #00c6ff;
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2rem;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -12px;
-      top: 5px;
-      width: 20px;
-      height: 20px;
-      background: #00c6ff;
-      border-radius: 50%;
-      border: 3px solid #203a43;
-    }
-
-    .timeline-item h3 {
-      font-size: 1.2rem;
-      color: #fff;
-      margin-bottom: 0.3rem;
-    }
-
-    .timeline-item p {
-      color: #ddd;
-      font-size: 0.95rem;
-    }
-
     /* Contact */
-    .contact-info {
-      text-align: center;
+    .contact p {
+      margin-bottom: 10px;
     }
 
-    .contact-info a {
+    .contact a {
       display: inline-block;
-      margin: 0.5rem;
-      color: #00c6ff;
-      text-decoration: none;
-      font-weight: bold;
+      margin: 5px 10px;
     }
 
     footer {
       text-align: center;
-      padding: 1rem;
-      background: rgba(0,0,0,0.3);
-      margin-top: 2rem;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
   <!-- Hero Section -->
-  <header>
-    <img src="profile.jpg" alt="Manish Kumar Chourasia">
+  <section class="hero" id="home">
     <h1>Manish Kumar Chourasia</h1>
     <p>Automation Testing Specialist | API Testing | UI Automation</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <div class="cta-buttons">
+      <a href="#experience">View My Work</a>
+      <a href="#contact">Get in Touch</a>
+    </div>
+  </section>
 
   <!-- About Section -->
-  <section id="about">
+  <section class="about" id="about">
     <h2>About Me</h2>
     <p>
-      A focused and goal-oriented professional with over 5 years of experience in Automation Testing & Product Testing. Skilled in Test Automation (Functional/API), defect identification, framework design, and CI/CD pipelines. Proficient in Software Test Life Cycle, UI Automation, API Testing, and leveraging AI tools for enhanced testing efficiency.
+      I am a focused and goal-oriented professional with 5+ years of experience in Automation Testing & Product Testing. 
+      Skilled in UI Automation, API Testing, and Test Strategy with expertise in designing and executing robust frameworks.
     </p>
     <p><strong>Education:</strong> B.E. (EEE), Hindustan University, 2016</p>
   </section>
 
   <!-- Experience Section -->
-  <section id="experience">
+  <section class="experience" id="experience">
     <h2>Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Test Scripts Creation (Functional + API) & Integration Testing</h3>
-        <p>Regression and end-to-end functionality coverage across multiple products.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>Framework Design & Migration</h3>
-        <p>Created automation frameworks from scratch using Page Object Model; migrated legacy frameworks.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>API Testing</h3>
-        <p>Hands-on with Rest Assured, SOAP UI, Postman for validating multiple endpoints.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>CI/CD & Project Management</h3>
-        <p>Azure DevOps pipelines, Jira/Rally for sprints, pull requests & code merges.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>UI Automation</h3>
-        <p>Selenium (Java/JS), WebDriverIO, Playwright, Cypress, BrowserStack for mobile testing.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>Quality Leadership</h3>
-        <p>Leading retrospectives, resolving iteration issues, and ensuring delivery excellence.</p>
-      </div>
-    </div>
+    <ul>
+      <li>
+        <strong>Test Scripts Creation (Functional + API) & Integration Testing</strong>
+        <p>For two products; regression and end-to-end functionality coverage.</p>
+      </li>
+      <li>
+        <strong>Framework Design & Migration</strong>
+        <p>Created frameworks from scratch using Page Object Model; migrated legacy frameworks.</p>
+      </li>
+      <li>
+        <strong>API Testing</strong>
+        <p>Rest Assured; manual execution of multiple endpoints via SOAP UI & Postman.</p>
+      </li>
+      <li>
+        <strong>CI/CD & Project Management</strong>
+        <p>Azure DevOps for Scrum & pipelines; status reporting; Rally/Jira for iteration tasks; PRs & code merges.</p>
+      </li>
+      <li>
+        <strong>UI Automation</strong>
+        <p>Selenium (Java/JavaScript), WebdriverIO, Playwright, Cypress; BrowserStack for mobile testing.</p>
+      </li>
+      <li>
+        <strong>Quality Leadership</strong>
+        <p>Daily team discussions, retrospectives (what went well, problems, action plan & execution).</p>
+      </li>
+    </ul>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills">
+  <section class="skills" id="skills">
     <h2>Skills & Expertise</h2>
     <div class="skills-grid">
-      <div class="skill">Selenium, Cucumber (BDD)</div>
-      <div class="skill">WebDriver IO, Playwright, Cypress</div>
-      <div class="skill">Java, JavaScript, Python, TypeScript</div>
-      <div class="skill">API Testing: Postman, SoapUI</div>
-      <div class="skill">CI/CD with Azure DevOps</div>
-      <div class="skill">GitHub, Git Commands, PRs</div>
-      <div class="skill">AWS Testing, MongoDB</div>
+      <div class="skill">Selenium</div>
+      <div class="skill">Cucumber (BDD)</div>
+      <div class="skill">Playwright</div>
+      <div class="skill">Cypress</div>
+      <div class="skill">Java / JavaScript</div>
+      <div class="skill">TypeScript (Basic)</div>
+      <div class="skill">Python</div>
+      <div class="skill">TestNG, Maven</div>
+      <div class="skill">Postman / SoapUI</div>
+      <div class="skill">BrowserStack</div>
+      <div class="skill">Azure DevOps</div>
+      <div class="skill">GitHub</div>
+      <div class="skill">MongoDB</div>
+      <div class="skill">AWS Testing</div>
       <div class="skill">Accessibility Testing</div>
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services">
-    <h2>Services</h2>
-    <div class="skills-grid">
-      <div class="skill">✅ UI Automation End-to-End</div>
-      <div class="skill">✅ Backend API Testing & Validation</div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
     <h2>Contact</h2>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:chourasiamanish1993@gmail.com">chourasiamanish1993@gmail.com</a></p>
-      <p>Phone: <a href="tel:+919940314208">+91-9940314208</a></p>
-      <p><a href="https://www.linkedin.com/in/manish-k-271b9a194" target="_blank">LinkedIn Profile</a></p>
-      <p><a href="https://github.com/chourasia93" target="_blank">GitHub Profile</a></p>
-    </div>
+    <p><strong>Email:</strong> <a href="mailto:chourasiamanish1993@gmail.com">chourasiamanish1993@gmail.com</a></p>
+    <p><strong>Phone:</strong> <a href="tel:+919940314208">+91-9940314208</a></p>
+    <p><a href="https://www.linkedin.com/in/manish-k-271b9a194" target="_blank">LinkedIn</a> | 
+       <a href="https://github.com/chourasia93" target="_blank">GitHub</a></p>
   </section>
 
   <footer>
-    <p>© 2025 Manish Kumar Chourasia. All Rights Reserved.</p>
+    © 2025 Manish Kumar Chourasia | Portfolio Website
   </footer>
 
 </body>
