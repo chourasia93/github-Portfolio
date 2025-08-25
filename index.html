@@ -7,155 +7,135 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     /* Global Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
       line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: #00c6ff; transition: 0.3s; }
+    a:hover { color: #1de9b6; }
+    section { padding: 70px 10%; }
+
+    h1, h2 { font-weight: 600; margin-bottom: 20px; }
+
+    /* Navbar */
+    nav {
+      position: fixed; top: 0; width: 100%;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 10%;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+    }
+    nav a { margin: 0 15px; font-weight: 500; }
+    nav .resume-buttons a {
+      padding: 8px 18px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      border-radius: 25px;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+    nav .resume-buttons input {
+      display: none;
     }
 
-    a {
-      text-decoration: none;
-      color: #00c6ff;
-      transition: color 0.3s ease;
-    }
-
-    a:hover {
-      color: #1de9b6;
-    }
-
-    section {
-      padding: 60px 10%;
-    }
-
-    h1, h2, h3 {
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-
-    /* Hero Section */
+    /* Hero */
     .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
       text-align: center;
       background: linear-gradient(135deg, #1f1c2c, #928DAB);
     }
-
-    .hero h1 {
-      font-size: 3rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-
+    .hero h1 { font-size: 3rem; animation: fadeInDown 1s ease; }
+    .hero p { font-size: 1.2rem; margin: 15px 0; animation: fadeInUp 1s ease; }
     .cta-buttons a {
       display: inline-block;
-      margin: 10px;
-      padding: 12px 25px;
+      margin: 10px; padding: 12px 25px;
       background: linear-gradient(135deg, #00c6ff, #0072ff);
-      border-radius: 30px;
-      color: #fff;
-      font-weight: 600;
-      transition: transform 0.3s ease;
+      border-radius: 30px; color: #fff; font-weight: 600;
+      transition: 0.3s;
     }
-
-    .cta-buttons a:hover {
-      transform: scale(1.1);
-    }
+    .cta-buttons a:hover { transform: scale(1.1); }
 
     /* About */
-    .about p {
-      max-width: 700px;
-      margin-bottom: 20px;
-    }
+    .about p { max-width: 700px; margin-bottom: 15px; }
 
     /* Experience */
     .experience ul {
-      list-style: none;
-      padding-left: 0;
-      margin-left: 0;
-      border-left: 3px solid #00c6ff;
+      list-style: none; border-left: 3px solid #00c6ff;
+      padding-left: 20px;
     }
-
     .experience li {
-      position: relative;
-      margin-bottom: 25px;
-      padding-left: 30px;
+      position: relative; margin-bottom: 25px; padding-left: 20px;
     }
-
     .experience li::before {
-      content: "";
-      position: absolute;
-      left: -8px;
-      top: 8px;
-      width: 14px;
-      height: 14px;
+      content: ""; position: absolute; left: -11px; top: 8px;
+      width: 16px; height: 16px; border-radius: 50%;
       background: linear-gradient(135deg, #00c6ff, #0072ff);
-      border-radius: 50%;
     }
-
-    .experience strong {
-      font-size: 1.1rem;
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .experience p {
-      font-size: 0.95rem;
-      color: #ddd;
-    }
+    .experience strong { font-size: 1.1rem; margin-bottom: 5px; display: block; }
 
     /* Skills */
     .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
     }
-
     .skill {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 15px;
-      border-radius: 12px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 15px;
+      padding: 20px;
       text-align: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s;
     }
-
     .skill:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      background: rgba(0,198,255,0.15);
     }
 
     /* Contact */
-    .contact p {
-      margin-bottom: 10px;
-    }
+    .contact a { display: inline-block; margin: 8px 12px; font-weight: 500; }
 
-    .contact a {
-      display: inline-block;
-      margin: 5px 10px;
-    }
-
+    /* Footer */
     footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.3);
-      font-size: 0.9rem;
+      text-align: center; padding: 20px;
+      background: rgba(0,0,0,0.4); font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
+  <!-- Navbar -->
+  <nav>
+    <div class="logo"><a href="#home"><strong>Portfolio</strong></a></div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="resume-buttons">
+      <a href="resume.pdf" download>Download Resume</a>
+      <label for="uploadResume" style="cursor:pointer;background:linear-gradient(135deg,#1de9b6,#1dc4e9);padding:8px 18px;border-radius:25px;color:#fff;">Upload Resume</label>
+      <input type="file" id="uploadResume" accept=".pdf,.doc,.docx">
+    </div>
+  </nav>
+
+  <!-- Hero -->
   <section class="hero" id="home">
     <h1>Manish Kumar Chourasia</h1>
     <p>Automation Testing Specialist | API Testing | UI Automation</p>
@@ -165,48 +145,27 @@
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About -->
   <section class="about" id="about">
     <h2>About Me</h2>
-    <p>
-      I am a focused and goal-oriented professional with 5+ years of experience in Automation Testing & Product Testing. 
-      Skilled in UI Automation, API Testing, and Test Strategy with expertise in designing and executing robust frameworks.
-    </p>
+    <p>I am a focused and goal-oriented professional with 5+ years of experience in Automation Testing & Product Testing. Skilled in UI Automation, API Testing, and Test Strategy with expertise in designing and executing robust frameworks.</p>
     <p><strong>Education:</strong> B.E. (EEE), Hindustan University, 2016</p>
   </section>
 
-  <!-- Experience Section -->
+  <!-- Experience -->
   <section class="experience" id="experience">
     <h2>Experience</h2>
     <ul>
-      <li>
-        <strong>Test Scripts Creation (Functional + API) & Integration Testing</strong>
-        <p>For two products; regression and end-to-end functionality coverage.</p>
-      </li>
-      <li>
-        <strong>Framework Design & Migration</strong>
-        <p>Created frameworks from scratch using Page Object Model; migrated legacy frameworks.</p>
-      </li>
-      <li>
-        <strong>API Testing</strong>
-        <p>Rest Assured; manual execution of multiple endpoints via SOAP UI & Postman.</p>
-      </li>
-      <li>
-        <strong>CI/CD & Project Management</strong>
-        <p>Azure DevOps for Scrum & pipelines; status reporting; Rally/Jira for iteration tasks; PRs & code merges.</p>
-      </li>
-      <li>
-        <strong>UI Automation</strong>
-        <p>Selenium (Java/JavaScript), WebdriverIO, Playwright, Cypress; BrowserStack for mobile testing.</p>
-      </li>
-      <li>
-        <strong>Quality Leadership</strong>
-        <p>Daily team discussions, retrospectives (what went well, problems, action plan & execution).</p>
-      </li>
+      <li><strong>Test Scripts Creation (Functional + API) & Integration Testing</strong><p>For two products; regression and end-to-end functionality coverage.</p></li>
+      <li><strong>Framework Design & Migration</strong><p>Created frameworks from scratch using Page Object Model; migrated legacy frameworks.</p></li>
+      <li><strong>API Testing</strong><p>Rest Assured; manual execution of multiple endpoints via SOAP UI & Postman.</p></li>
+      <li><strong>CI/CD & Project Management</strong><p>Azure DevOps for Scrum & pipelines; status reporting; Rally/Jira for iteration tasks; PRs & code merges.</p></li>
+      <li><strong>UI Automation</strong><p>Selenium (Java/JavaScript), WebdriverIO, Playwright, Cypress; BrowserStack for mobile testing.</p></li>
+      <li><strong>Quality Leadership</strong><p>Daily team discussions, retrospectives (what went well, problems, action plan & execution).</p></li>
     </ul>
   </section>
 
-  <!-- Skills Section -->
+  <!-- Skills -->
   <section class="skills" id="skills">
     <h2>Skills & Expertise</h2>
     <div class="skills-grid">
@@ -228,7 +187,7 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section class="contact" id="contact">
     <h2>Contact</h2>
     <p><strong>Email:</strong> <a href="mailto:chourasiamanish1993@gmail.com">chourasiamanish1993@gmail.com</a></p>
@@ -240,6 +199,15 @@
   <footer>
     © 2025 Manish Kumar Chourasia | Portfolio Website
   </footer>
+
+  <script>
+    // Upload Resume Event
+    document.getElementById("uploadResume").addEventListener("change", function(){
+      if(this.files.length > 0){
+        alert("Uploaded: " + this.files[0].name);
+      }
+    });
+  </script>
 
 </body>
 </html>
