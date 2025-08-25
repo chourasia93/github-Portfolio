@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(0,0,0,0.6);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header .logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.header .logo span {
+  color: #00c6ff;
+}
+
+.nav a {
+  margin: 0 15px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #00c6ff;
+}
+
+.btn-download {
+  padding: 10px 20px;
+  background: #00c6ff;
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-download:hover {
+  background: #0072ff;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 60px;
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-content h1 span {
+  color: yellow;
+}
+
+.hero-content h2 {
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+.hero-buttons .btn-primary, .btn-secondary {
+  margin-right: 15px;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: #ff9800;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #e68900;
+}
+
+.btn-secondary {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #fff;
+  color: #333;
+}
+
+.hero-img img {
+  width: 280px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+}
+
+/* SECTION STYLES */
+section {
+  padding: 80px 60px;
+}
+
+h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* EXPERIENCE TIMELINE */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timeline-item {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-left: 4px solid #00c6ff;
+  border-radius: 8px;
+}
+
+.timeline-item h3 {
+  color: #00c6ff;
+}
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  background: #00c6ff;
+}
+
+/* RESUME UPLOAD */
+.resume-upload {
+  text-align: center;
+}
+
+.resume-upload input {
+  margin: 15px 0;
+}
+
+/* CONTACT */
+.contact {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  margin-top: 40px;
+}
