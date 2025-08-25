@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Manish Chourasia — Portfolio</title>
-  <meta name="description" content="Portfolio of Manish Chourasia — Automation Testing Specialist with 5+ years of experience in UI Automation and API Testing." />
+  <meta name="description" content="Portfolio of Manish Chourasia — Automation Testing Specialist with 5+ years of experience in UI&Backend Automation and API Testing." />
 
   <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,7 +85,7 @@
     .pfp {
       width: 220px; height: 220px; border-radius: 50%;
       background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.15), rgba(255,255,255,.03) 40%, transparent 60%),
-                  url('https://i.postimg.cc/bJQ1S8B3/Whats-App-Image-2025-08-25-at-3-06-18-PM.jpg') center/cover no-repeat, #1a2248;
+                  url('https://pdf.ac/7hEYcF12X') center/cover no-repeat, #1a2248;
       border: 2px solid var(--border);
       box-shadow: 0 12px 40px rgba(79, 209, 197, 0.2);
       margin-left: auto; margin-right: auto;
@@ -102,11 +102,47 @@
     .chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: #0e1632; font-size: 13px; margin: 6px 6px 0 0; }
 
     /* Experience timeline */
-    .timeline { position: relative; margin: 14px 0 0 0; padding-left: 26px; }
+   /* .timeline { position: relative; margin: 14px 0 0 0; padding-left: 26px; }
     .timeline::before { content: ""; position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: linear-gradient(var(--accent), var(--accent-2)); opacity: .6; }
     .tl-item { position: relative; margin: 0 0 16px 0; }
     .tl-item::before { content: ""; position: absolute; left: -1px; top: 8px; width: 14px; height: 14px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-radius: 50%; box-shadow: 0 0 0 3px rgba(124,92,255,.2); }
-
+*/
+.timeline {
+    position: relative;
+    margin: 14px 0 0 0;
+    padding-left: 26px;
+    list-style: none; /* removes default bullets */
+  }
+  
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(var(--accent), var(--accent-2));
+    opacity: .6;
+  }
+  
+  .tl-item {
+    position: relative;
+    margin: 0 0 16px 0;
+    padding-left: 12px; /* spacing for text */
+  }
+  
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    left: -18px; /* adjust so dot aligns with vertical line */
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(124,92,255,.2);
+  }
+  
     /* Skills */
     .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .skill-list { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -150,7 +186,7 @@
   <!-- Header / Navigation -->
   <header>
     <div class="nav">
-      <div class="brand"><div class="brand-logo" aria-hidden="true"></div> <span>Manish K. Chourasia</span></div>
+      <div class="brand"><div class="brand-logo" aria-hidden="true"></div> <span>Manish Chourasia</span></div>
       <nav aria-label="Primary">
         <ul>
           <li><a href="#home">Home</a></li>
@@ -197,10 +233,10 @@
       <div class="about-grid">
         <div class="card">
           <p>
-            A focused and goal-oriented professional with 5+ years in Automation Testing & Product Testing (Functional),
-            skilled in Functional/API automation, database tracking, bug identification, and test scripting. Proficient
+            A focused and goal-oriented professional with 5+ years in UI Automation Testing & Product Testing (Functional),
+            skilled in Functional/API automation, Database tracking, Bug identification, and Test scripting. Proficient
             across the Software Test Life Cycle: Test Strategy, Planning, Design, Estimation, Execution, Test Data
-            creation & validation, API testing, UI automation, prompt writing for AI tools, test review, defect reporting &
+            creation & validation, API testing, UI automation, prompt & Code writing usingMultiple AI tools, Test review, Defect reporting &
             re-testing. Experienced working on projects of various lengths and complexity with a commitment to quality.
           </p>
           <div class="highlights">
@@ -216,7 +252,7 @@
           <h3>Education</h3>
           <p><strong>B.E. (EEE)</strong> — Hindustan University, <span class="muted">2016</span></p>
           <h3 style="margin-top:18px;">Professional Focus</h3>
-          <p class="muted">UI Automation • API Validation • Test Frameworks • Quality at speed</p>
+          <p class="muted">UI Automation • API EndPoint Validation • Test Frameworks • Quality at speed & Bug Free</p>
         </div>
       </div>
     </div>
@@ -232,28 +268,28 @@
       <div class="card">
         <ul class="timeline">
           <li class="tl-item">
-            <h4>Test Scripts Creation (Functional + API) & Integration Testing</h4>
-            <p class="muted">For two products; regression and end-to-end functionality coverage.</p>
+            <h4>  Test Scripts Creation (Functional + API) & Integration Testing</h4>
+            <p class="muted"> For two products; regression and end-to-end functionality coverage.</p>
           </li>
           <li class="tl-item">
             <h4>Framework Design & Migration</h4>
-            <p class="muted">Created frameworks from scratch using Page Object Model; migrated legacy frameworks.</p>
+            <p class="muted"> Created frameworks from scratch using Page Object Model; migrated legacy frameworks.</p>
           </li>
           <li class="tl-item">
             <h4>API Testing</h4>
-            <p class="muted">Rest Assured; manual execution of multiple endpoints via SOAP UI & Postman.</p>
+            <p class="muted">  Rest Assured; manual execution of multiple endpoints via SOAP UI & Postman.</p>
           </li>
           <li class="tl-item">
-            <h4>CI/CD & Project Management</h4>
-            <p class="muted">Azure DevOps for Scrum & pipelines; status reporting; Rally/Jira for iteration tasks; PRs & code merges.</p>
+            <h4> CI/CD & Project Management</h4>
+            <p class="muted"> Azure DevOps for Scrum & pipelines; status reporting; Rally/Jira for iteration tasks; PRs & code merges.</p>
           </li>
           <li class="tl-item">
-            <h4>UI Automation</h4>
-            <p class="muted">Selenium (Java/JavaScript), WebdriverIO, Playwright, Cypress; BrowserStack for mobile testing.</p>
+            <h4> UI Automation</h4>
+            <p class="muted"> Selenium (Java/JavaScript), WebdriverIO, Playwright, Cypress; BrowserStack for mobile testing.</p>
           </li>
           <li class="tl-item">
-            <h4>Quality Leadership</h4>
-            <p class="muted">Daily team discussions, retrospectives (what went well, problems, action plan & execution).</p>
+            <h4> Quality Leadership</h4>
+            <p class="muted"> Scrum Calls,Daily team discussions, Retrospectives Meeting(what went well, problems, action plan & execution),Refinement.</p>
           </li>
         </ul>
       </div>
@@ -307,7 +343,7 @@
             <span class="chip">MongoDB Validation</span>
             <span class="chip">AWS Testing (S3 / APIs)</span>
             <span class="chip">Azure DevOps</span>
-            <span class="chip">Git / GitHub</span>
+            <span class="chip">GitHub</span>
             <span class="chip">Accessibility Tool (axe)</span>
           </div>
           <div class="progress" title="UI Automation"><div class="bar" style="--pct: 85%"></div></div>
@@ -388,6 +424,8 @@
             <a href="tel:+919940314208">📞 +91‑99403‑14208</a>
             <a href="https://www.linkedin.com/in/manish-k-271b9a194" target="_blank" rel="noreferrer">in/ manish-k-271b9a194</a>
             <a href="https://github.com/chourasia93" target="_blank" rel="noreferrer">GitHub: chourasia93</a>
+            <a class="btn" href="https://pdf.ac/7hEYcF12X" download target="_blank">Download Resume</a>
+
           </div>
         </div>
         <div class="card">
@@ -414,7 +452,7 @@
   </section>
 
   <footer>
-    <p>© <span id="year"></span> Manish Chourasia • Built</p>
+    <p>© <span id="year"></span> Manish Chourasia •Built</p>
   </footer>
 
   <script>
