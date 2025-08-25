@@ -1,116 +1,418 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manish Kumar Chourasia | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Manish Kumar Chourasia — Portfolio</title>
+  <meta name="description" content="Portfolio of Manish Kumar Chourasia — Automation Testing Specialist with 5+ years of experience in UI Automation and API Testing." />
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-1: #0b1020;
+      --bg-2: #111a3a;
+      --bg-3: #1b2a5b;
+      --accent: #7c5cff;
+      --accent-2: #4fd1c5;
+      --text: #e6eaf2;
+      --muted: #a8b1c7;
+      --card: #121830;
+      --border: rgba(255,255,255,0.08);
+      --glow: 0 10px 30px rgba(124, 92, 255, 0.35);
+      --radius: 18px;
+      --maxw: 1100px;
+    }
+
+    /* Reset / base */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 20% -10%, #1b2550 0%, transparent 60%),
+                  radial-gradient(1000px 600px at 110% 10%, #1a3b5f 0%, transparent 60%),
+                  linear-gradient(160deg, var(--bg-1), var(--bg-2) 45%, var(--bg-3));
+      background-attachment: fixed;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Top nav */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(120%) blur(10px);
+      background: linear-gradient(180deg, rgba(10,12,26,0.85), rgba(10,12,26,0.55));
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      max-width: var(--maxw);
+      margin: 0 auto; padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.3px; }
+    .brand-logo {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: var(--glow);
+    }
+    nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; }
+    nav a { color: var(--text); opacity: 0.9; font-weight: 500; }
+    nav a:hover { color: white; opacity: 1; }
+
+    /* Sections */
+    section { padding: 88px 20px; }
+    .container { max-width: var(--maxw); margin: 0 auto; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .section-title { font-family: Montserrat, Inter, sans-serif; font-size: 28px; font-weight: 700; letter-spacing: .5px; }
+    .section-sub { color: var(--muted); font-size: 15px; }
+
+    /* Hero */
+    .hero { padding-top: 84px; }
+    .hero-wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center; }
+    .hero h1 { font-family: Montserrat, Inter, sans-serif; font-size: 40px; margin: 0 0 10px; line-height: 1.1; }
+    .tagline { color: var(--muted); font-size: 18px; margin-bottom: 18px; }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 14px; border: 1px solid var(--border); background: #0f1530; color: #fff; font-weight: 600; }
+    .btn:hover { box-shadow: var(--glow); transform: translateY(-1px); }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); border: none; }
+
+    .pfp {
+      width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.15), rgba(255,255,255,.03) 40%, transparent 60%),
+                  url('profile.jpg') center/cover no-repeat, #1a2248;
+      border: 2px solid var(--border);
+      box-shadow: 0 12px 40px rgba(79, 209, 197, 0.2);
+      margin-left: auto; margin-right: auto;
+      position: relative;
+    }
+    .pfp::after { content: ""; position: absolute; inset: -12px; border-radius: 50%; filter: blur(18px); background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent)); opacity: .35; z-index: -1; }
+
+    /* Cards / surfaces */
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; }
+    .highlights { display: grid; gap: 10px; }
+    .chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: #0e1632; font-size: 13px; margin: 6px 6px 0 0; }
+
+    /* Experience timeline */
+    .timeline { position: relative; margin: 14px 0 0 0; padding-left: 26px; }
+    .timeline::before { content: ""; position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: linear-gradient(var(--accent), var(--accent-2)); opacity: .6; }
+    .tl-item { position: relative; margin: 0 0 16px 0; }
+    .tl-item::before { content: ""; position: absolute; left: -1px; top: 8px; width: 14px; height: 14px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-radius: 50%; box-shadow: 0 0 0 3px rgba(124,92,255,.2); }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .progress { margin-top: 10px; height: 10px; background: #0d1430; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+    .bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--accent-2)); animation: fill 1.6s ease forwards; }
+    @keyframes fill { to { width: var(--pct, 100%); } }
+
+    /* Services */
+    .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .coming { text-align: center; padding: 40px 20px; border: 1px dashed var(--border); border-radius: var(--radius); color: var(--muted); }
+
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .contact-info a { display: inline-flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; background: #0f1736; margin: 6px 6px 0 0; }
+    form { display: grid; gap: 12px; }
+    input, textarea { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border); background: #0e1533; color: var(--text); font: inherit; }
+    textarea { min-height: 120px; resize: vertical; }
+
+    /* Footer */
+    footer { padding: 40px 20px; border-top: 1px solid var(--border); color: var(--muted); text-align: center; }
+
+    /* Utilities */
+    .muted { color: var(--muted); }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-wrap, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .services, .projects { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 34px; }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">Manish<span>Portfolio</span></div>
-    <nav class="nav">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a href="resume.pdf" download class="btn-download">Download CV</a>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="nav">
+      <div class="brand"><div class="brand-logo" aria-hidden="true"></div> <span>Manish K. Chourasia</span></div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- Hero -->
   <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Hello, I'm <span>Manish Kumar Chourasia</span></h1>
-      <h2>Automation Testing Specialist | API Testing | UI Automation</h2>
-      <p>Focused and goal-oriented professional with 5+ years of experience in Automation Testing & Product Testing.</p>
-      <div class="hero-buttons">
-        <a href="#portfolio" class="btn-primary">View My Work</a>
-        <a href="#contact" class="btn-secondary">Get in Touch</a>
+    <div class="container hero-wrap">
+      <div>
+        <h1>Automation Testing Specialist<br/>API Testing • UI Automation</h1>
+        <p class="tagline">Focused and goal‑oriented professional with 5+ years of experience in Automation & Product Testing.</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">View My Work</a>
+          <a class="btn" href="#contact">Get in Touch</a>
+          <a class="btn" href="mailto:chourasiamanish1993@gmail.com" aria-label="Email">Email</a>
+          <a class="btn" href="https://www.linkedin.com/in/manish-k-271b9a194" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/chourasia93" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
       </div>
-    </div>
-    <div class="hero-img">
-      <img src="profile.png" alt="Profile Picture">
-    </div>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section id="about" class="about">
-    <h2>About Me</h2>
-    <p>I specialize in automation testing, API testing, and framework design. Skilled in delivering high-quality test strategies and ensuring smooth software delivery.</p>
-    <ul>
-      <li>B.E. (EEE), Hindustan University, 2016</li>
-      <li>5+ Years of Experience</li>
-    </ul>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="experience">
-    <h2>Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Test Scripts Creation</h3>
-        <p>Regression & end-to-end functionality coverage for multiple products.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>Framework Design & Migration</h3>
-        <p>Created frameworks from scratch using Page Object Model; migrated legacy frameworks.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>API Testing</h3>
-        <p>Rest Assured, Postman, SOAP UI for endpoint validation.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>CI/CD & Project Management</h3>
-        <p>Azure DevOps pipelines, Jira/Rally for iteration tasks, code merges & reporting.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>UI Automation</h3>
-        <p>Selenium, Playwright, Cypress, WebDriverIO; BrowserStack for mobile testing.</p>
+      <div>
+        <!-- Replace profile.jpg with your own image in the same folder -->
+        <div class="pfp" title="Profile Picture Placeholder" aria-label="Profile Picture"></div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="skills">
-    <h2>Skills & Expertise</h2>
-    <div class="skills-grid">
-      <div class="skill-card">Selenium</div>
-      <div class="skill-card">Playwright</div>
-      <div class="skill-card">Cypress</div>
-      <div class="skill-card">Java / JS / Python</div>
-      <div class="skill-card">Postman / SoapUI</div>
-      <div class="skill-card">Azure DevOps</div>
-      <div class="skill-card">GitHub</div>
-      <div class="skill-card">MongoDB</div>
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">About</h2>
+        <p class="section-sub">Who I am & what I do</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="card">
+          <p>
+            A focused and goal-oriented professional with 5+ years in Automation Testing & Product Testing (Functional),
+            skilled in Functional/API automation, database tracking, bug identification, and test scripting. Proficient
+            across the Software Test Life Cycle: Test Strategy, Planning, Design, Estimation, Execution, Test Data
+            creation & validation, API testing, UI automation, prompt writing for AI tools, test review, defect reporting &
+            re-testing. Experienced working on projects of various lengths and complexity with a commitment to quality.
+          </p>
+          <div class="highlights">
+            <span class="chip">Automation Testing</span>
+            <span class="chip">API Testing</span>
+            <span class="chip">Test Strategy</span>
+            <span class="chip">Framework Design (POM)</span>
+            <span class="chip">Azure DevOps</span>
+            <span class="chip">GitHub / CI</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Education</h3>
+          <p><strong>B.E. (EEE)</strong> — Hindustan University, <span class="muted">2016</span></p>
+          <h3 style="margin-top:18px;">Professional Focus</h3>
+          <p class="muted">UI Automation • API Validation • Test Frameworks • Quality at speed</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- RESUME UPLOAD -->
-  <section class="resume-upload">
-    <h2>Upload Your Resume</h2>
-    <form action="#" method="post" enctype="multipart/form-data">
-      <input type="file" name="resume" accept=".pdf,.doc,.docx">
-      <button type="submit" class="btn-primary">Upload</button>
-    </form>
+  <!-- Experience -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-sub">Responsibilities & areas of impact</p>
+      </div>
+      <div class="card">
+        <ul class="timeline">
+          <li class="tl-item">
+            <h4>Test Scripts Creation (Functional + API) & Integration Testing</h4>
+            <p class="muted">For two products; regression and end-to-end functionality coverage.</p>
+          </li>
+          <li class="tl-item">
+            <h4>Framework Design & Migration</h4>
+            <p class="muted">Created frameworks from scratch using Page Object Model; migrated legacy frameworks.</p>
+          </li>
+          <li class="tl-item">
+            <h4>API Testing</h4>
+            <p class="muted">Rest Assured; manual execution of multiple endpoints via SOAP UI & Postman.</p>
+          </li>
+          <li class="tl-item">
+            <h4>CI/CD & Project Management</h4>
+            <p class="muted">Azure DevOps for Scrum & pipelines; status reporting; Rally/Jira for iteration tasks; PRs & code merges.</p>
+          </li>
+          <li class="tl-item">
+            <h4>UI Automation</h4>
+            <p class="muted">Selenium (Java/JavaScript), WebdriverIO, Playwright, Cypress; BrowserStack for mobile testing.</p>
+          </li>
+          <li class="tl-item">
+            <h4>Quality Leadership</h4>
+            <p class="muted">Daily team discussions, retrospectives (what went well, problems, action plan & execution).</p>
+          </li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:chourasiamanish1993@gmail.com">chourasiamanish1993@gmail.com</a></p>
-    <p>Phone: <a href="tel:+919940314208">+91-9940314208</a></p>
-    <p><a href="https://www.linkedin.com/in/manish-k-271b9a194" target="_blank">LinkedIn</a> | 
-       <a href="https://github.com/chourasia93" target="_blank">GitHub</a></p>
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <p class="section-sub">Tools, languages & platforms</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Automation Tools</h3>
+          <div class="skill-list">
+            <span class="chip">Selenium</span>
+            <span class="chip">Cucumber (BDD)</span>
+            <span class="chip">Playwright</span>
+            <span class="chip">Cypress</span>
+            <span class="chip">WebDriverIO</span>
+          </div>
+          <div class="progress" title="Selenium"><div class="bar" style="--pct: 95%"></div></div>
+          <div class="progress" title="Playwright"><div class="bar" style="--pct: 85%"></div></div>
+        </div>
+
+        <div class="card">
+          <h3>Languages</h3>
+          <div class="skill-list">
+            <span class="chip">Java</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">TypeScript (Basic)</span>
+            <span class="chip">Python</span>
+          </div>
+          <div class="progress" title="Java"><div class="bar" style="--pct: 90%"></div></div>
+          <div class="progress" title="JavaScript"><div class="bar" style="--pct: 80%"></div></div>
+        </div>
+
+        <div class="card">
+          <h3>Testing & Cloud</h3>
+          <div class="skill-list">
+            <span class="chip">TestNG</span>
+            <span class="chip">Maven</span>
+            <span class="chip">Postman</span>
+            <span class="chip">SoapUI</span>
+            <span class="chip">BrowserStack</span>
+            <span class="chip">MongoDB</span>
+            <span class="chip">AWS Testing (S3 / APIs)</span>
+            <span class="chip">Azure DevOps</span>
+            <span class="chip">Git / GitHub</span>
+            <span class="chip">Accessibility (axe)</span>
+          </div>
+          <div class="progress" title="Azure DevOps"><div class="bar" style="--pct: 85%"></div></div>
+          <div class="progress" title="Git/GitHub"><div class="bar" style="--pct: 88%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Services</h2>
+        <p class="section-sub">How I can help your team</p>
+      </div>
+
+      <div class="services">
+        <div class="card">
+          <h3>UI Automation — End to End</h3>
+          <p class="muted">Design and implement robust, maintainable UI automation frameworks (POM, BDD/TDD) with reliable CI integration for rapid feedback.</p>
+          <a class="btn primary" href="#contact">Request a consultation</a>
+        </div>
+        <div class="card">
+          <h3>Backend API Testing & Validation</h3>
+          <p class="muted">Comprehensive API test coverage using Rest Assured, Postman & SoapUI; schema validation, auth flows, and regression suites.</p>
+          <a class="btn primary" href="#contact">Start a project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects / Portfolio -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Portfolio / Projects</h2>
+        <p class="section-sub">Case studies & examples</p>
+      </div>
+
+      <div class="projects">
+        <div class="card coming">
+          <h3>Coming Soon</h3>
+          <p>Case studies of automation frameworks, CI pipelines, and end‑to‑end test suites will be published here.</p>
+        </div>
+        <div class="card">
+          <h3>Suggested Case Study Outline</h3>
+          <ul>
+            <li><strong>Context:</strong> Business goals & quality risks</li>
+            <li><strong>Approach:</strong> Tools, architecture (POM), test design</li>
+            <li><strong>Execution:</strong> CI setup (Azure DevOps), environments, data</li>
+            <li><strong>Impact:</strong> Coverage, defects caught, cycle time saved</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-sub">Let's build quality at speed</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="card contact-info">
+          <h3>Get in touch</h3>
+          <p class="muted">I'm open to opportunities and collaborations in Automation & API Testing.</p>
+          <div style="margin-top:10px">
+            <a href="mailto:chourasiamanish1993@gmail.com">📧 chourasiamanish1993@gmail.com</a>
+            <a href="tel:+919940314208">📞 +91‑99403‑14208</a>
+            <a href="https://www.linkedin.com/in/manish-k-271b9a194" target="_blank" rel="noreferrer">in/ manish-k-271b9a194</a>
+            <a href="https://github.com/chourasia93" target="_blank" rel="noreferrer">GitHub: chourasia93</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Quick Message</h3>
+          <!-- Mailto fallback (client will open email app). For production, point to a backend handler. -->
+          <form action="mailto:chourasiamanish1993@gmail.com" method="post" enctype="text/plain">
+            <label>
+              Name
+              <input type="text" name="name" placeholder="Your full name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Message
+              <textarea name="message" placeholder="How can I help?" required></textarea>
+            </label>
+            <button class="btn primary" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>© 2025 Manish Kumar Chourasia | All Rights Reserved</p>
+    <p>© <span id="year"></span> Manish Kumar Chourasia • Built with HTML & CSS</p>
   </footer>
 
+  <script>
+    // Update year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
