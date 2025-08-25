@@ -1,187 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manish Kumar Chourasia — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #5A4BFF;
-      --secondary: #FF9F45;
-      --bg: #f9f9ff;
-      --dark: #1f1f39;
-      --light: #fff;
-      --muted: #6a6a8c;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--dark);
-      line-height: 1.6;
-    }
-    header {
-      background: var(--primary);
-      color: white;
-      padding: 20px 40px;
-      display: flex; justify-content: space-between; align-items: center;
-      position: sticky; top: 0; z-index: 1000;
-    }
-    header nav a {
-      margin: 0 14px; color: white; text-decoration: none; font-weight: 500;
-    }
-    header nav a:hover { color: var(--secondary); }
-    .btn {
-      padding: 10px 20px;
-      border: none; border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn.primary { background: var(--secondary); color: white; }
-    .btn.primary:hover { background: #ff7f1a; }
-    .hero {
-      display: grid; grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 60px 10%;
-      background: linear-gradient(135deg, var(--primary), #6c63ff);
-      color: white;
-    }
-    .hero img {
-      width: 300px; height: 300px;
-      border-radius: 50%; object-fit: cover;
-      border: 6px solid white;
-      box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
-      margin: auto;
-    }
-    .hero h1 { font-size: 42px; margin-bottom: 20px; }
-    .hero p { margin-bottom: 25px; font-size: 18px; }
-    section { padding: 70px 10%; }
-    .section-title {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .card {
-      background: var(--light);
-      border-radius: 16px;
-      padding: 20px;
-      margin: 16px 0;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    }
-    .skills-grid, .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    footer {
-      background: var(--dark); color: white;
-      text-align: center; padding: 30px 20px;
-    }
-    footer a { color: var(--secondary); text-decoration: none; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Manish Kumar Chourasia — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#5A4BFF;
+    --primary-2:#6c63ff;
+    --accent:#FF9F45;
+    --bg:#f6f7ff;
+    --card:#ffffff;
+    --text:#1e2442;
+    --muted:#6f76a0;
+    --line:#e6e8ff;
+    --shadow:0 10px 30px rgba(30,36,66,.12);
+    --radius:18px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    color:var(--text);
+    background:
+      radial-gradient(900px 500px at -10% -10%, #e8ebff 0, transparent 60%),
+      radial-gradient(900px 500px at 110% -20%, #efe7ff 0, transparent 60%),
+      var(--bg);
+  }
+  a{color:inherit;text-decoration:none}
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:saturate(120%) blur(10px);
+    background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.65));
+    border-bottom:1px solid #eef0ff;
+  }
+  .nav{
+    max-width:var(--maxw);margin:0 auto;padding:14px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+  .brand-badge{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--primary),#00d4ff);box-shadow:0 6px 18px rgba(90,75,255,.35)}
+  .links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .links a{color:#2b2f55;font-weight:600;opacity:.9}
+  .links a:hover{opacity:1;color:var(--primary)}
+  .btn{display:inline-flex;align-items:center;gap:10px;border:none;border-radius:14px;padding:11px 16px;font-weight:700;cursor:pointer}
+  .btn.primary{background:linear-gradient(135deg,var(--accent),#ffc26e);color:#fff;box-shadow:0 8px 24px rgba(255,159,69,.35)}
+  .btn.ghost{border:1px solid #dfe3ff;background:#fff}
+  /* Sections */
+  section{padding:84px 20px}
+  .container{max-width:var(--maxw);margin:0 auto}
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:26px}
+  .title{font-size:28px;font-weight:800}
+  .sub{color:var(--muted);font-size:14px}
+  /* Hero */
+  .hero{padding-top:96px}
+  .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+  .hero h1{font-size:42px;line-height:1.15;margin:0 0 10px;font-weight:800}
+  .hero p{color:var(--muted);font-size:18px;margin:0 0 18px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .pfp{
+    width:320px;height:320px;border-radius:24px;overflow:hidden;margin:0 auto;position:relative;
+    box-shadow:var(--shadow),0 0 0 10px #ffffff,0 24px 80px rgba(108,99,255,.25);
+    background:#0b0f2a;
+  }
+  .pfp img{width:100%;height:100%;object-fit:cover}
+  .pfp::after{content:"";position:absolute;inset:-12px;border-radius:32px;filter:blur(24px);
+    background:conic-gradient(from 120deg,var(--primary),#00d4ff,var(--primary));opacity:.25;z-index:-1}
+  /* Card */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+  /* About pills */
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .chip{padding:8px 12px;border:1px solid #e6e8ff;border-radius:999px;background:#fff;font-size:13px}
+  /* Services */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  /* Experience timeline */
+  .timeline{position:relative;margin:8px 0 0 0;padding-left:28px}
+  .timeline::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(var(--primary),#00d4ff);opacity:.45}
+  .tl-item{position:relative;margin:0 0 16px 0}
+  .tl-item::marker{content:""} /* remove default bullets */
+  .tl-item::before{
+    content:"";position:absolute;left:-1px;top:8px;width:14px;height:14px;border-radius:50%;
+    background:linear-gradient(135deg,var(--primary),#00d4ff);box-shadow:0 0 0 4px rgba(108,99,255,.18)
+  }
+  .tl-title{margin:0 0 6px;font-weight:800}
+  .muted{color:var(--muted)}
+  /* Skills */
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{padding:8px 10px;border-radius:10px;background:#eef0ff;border:1px solid #dfe3ff;font-size:13px}
+  /* Portfolio */
+  .filters{display:flex;gap:10px;flex-wrap:wrap}
+  .filter{padding:8px 14px;border-radius:999px;border:1px solid #dfe3ff;background:#fff;font-weight:700;cursor:pointer}
+  .filter.active{background:linear-gradient(135deg,var(--primary),#00d4ff);color:#fff;border-color:transparent}
+  .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+  .proj{overflow:hidden}
+  .thumb{aspect-ratio:16/10;border-radius:14px;background:linear-gradient(135deg,#d3d8ff,#ffe9d6);display:flex;align-items:center;justify-content:center;font-weight:800;color:#3b3f6a}
+  .proj h4{margin:12px 0 4px}
+  .proj p{margin:0;color:var(--muted);font-size:14px}
+  .proj:hover .thumb{transform:scale(1.03);transition:.35s}
+  /* Testimonials */
+  .testimonials{position:relative}
+  .t-wrap{overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:#fff}
+  .t-track{display:flex;transition:transform .6s ease}
+  .t-card{flex:0 0 100%;padding:26px}
+  .t-ctrl{display:flex;gap:8px;justify-content:center;margin-top:10px}
+  .dot{width:10px;height:10px;border-radius:50%;background:#cfd3ff}
+  .dot.active{background:linear-gradient(135deg,var(--primary),#00d4ff)}
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+  .contact a{color:var(--primary);font-weight:700}
+  .upload{border:2px dashed #cfd3ff;border-radius:14px;background:#f7f8ff;text-align:center;padding:24px}
+  .upload input{margin-top:10px}
+  /* Footer */
+  footer{padding:34px 20px;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
+  /* Responsive */
+  @media (max-width:1060px){.grid-3,.skills,.projects{grid-template-columns:1fr 1fr}}
+  @media (max-width:900px){
+    .hero-grid,.contact-grid{grid-template-columns:1fr}
+    .pfp{width:280px;height:280px}
+  }
+  @media (max-width:640px){
+    .skills,.grid-3,.projects{grid-template-columns:1fr}
+    .hero h1{font-size:34px}
+  }
+</style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <h2>Manish Portfolio</h2>
-    <nav>
+<header>
+  <div class="nav">
+    <div class="brand"><div class="brand-badge" aria-hidden="true"></div> Manish Portfolio</div>
+    <div class="links">
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
-      <a href="#resume">Resume</a>
+      <a href="#projects">Projects</a>
+      <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
-    </nav>
-    <a href="Resume_Manish_2024 (1).pdf" download class="btn primary">Download CV</a>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div>
-      <h1>Hi, I'm Manish Kumar Chourasia</h1>
-      <p>Automation Test Engineer | UI Automation | API Testing | DevOps</p>
-      <a href="#contact" class="btn primary">Hire Me</a>
+      <a class="btn primary" href="Resume_Manish_2024 (1).pdf" download>Download Resume</a>
     </div>
-    <div>
-      <img src="manish.jpeg" alt="Profile photo">
-    </div>
-  </section>
+  </div>
+</header>
 
-  <!-- About -->
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Hi, I'm <span style="color:var(--primary)">Manish Kumar Chourasia</span></h1>
+      <p>Automation Testing Specialist — API Testing • UI Automation • CI/CD. Focused on delivering quality at speed with maintainable frameworks.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View My Work</a>
+        <a class="btn ghost" href="#contact">Get in Touch</a>
+      </div>
+    </div>
+    <div class="pfp" title="Profile"><img src="manish.jpeg" alt="Manish Kumar Chourasia"></div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="title">About</h2><div class="sub">Who I am & what I do</div>
+    </div>
     <div class="card">
       <p>
-        A focused and goal-oriented professional with 5+ years in Automation & Product Testing (Functional & API),
-        experienced in Selenium, Playwright, Cypress, WebDriverIO, API Testing (Postman, SoapUI), and CI/CD with Azure DevOps & GitHub.
+        A focused and goal-oriented professional with 5+ years in Automation & Product Testing (Functional/API).
+        Skilled in Selenium, Playwright, Cypress, WebdriverIO, Rest Assured, Postman, SoapUI, with CI/CD in Azure DevOps & Git/GitHub.
+        B.E. (EEE), Hindustan University, 2016.
       </p>
+      <div class="chips">
+        <span class="chip">Automation Testing</span>
+        <span class="chip">API Validation</span>
+        <span class="chip">Framework Design (POM)</span>
+        <span class="chip">Azure DevOps Pipelines</span>
+        <span class="chip">Accessibility (axe)</span>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Services -->
-  <section id="services">
-    <h2 class="section-title">Services</h2>
-    <div class="services-grid">
-      <div class="card"><h3>UI Automation</h3><p>End-to-End automation frameworks (POM, BDD/TDD) for speed and reliability.</p></div>
-      <div class="card"><h3>API Testing</h3><p>Functional, regression, and E2E API validation with Postman, Rest Assured, SoapUI.</p></div>
-      <div class="card"><h3>CI/CD Integration</h3><p>Pipeline creation in Azure DevOps, GitHub PR/Merge, cloud-based testing.</p></div>
+<!-- Services -->
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="title">Services</h2><div class="sub">What I can do for you</div>
     </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience">
-    <h2 class="section-title">Experience</h2>
-    <div class="card"><h3>Staff Software Engineer — Assurant</h3><p>March 2023 – Present<br>Automation Testing, API, DevOps</p></div>
-    <div class="card"><h3>Senior Quality Engineer — L&T Infotech</h3><p>Aug 2021 – Mar 2023<br>Framework Design, UI & API Automation</p></div>
-    <div class="card"><h3>Programmer Analyst — Cognizant</h3><p>Feb 2020 – Aug 2021<br>Product Testing (Automation)</p></div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills">
-    <h2 class="section-title">Skills</h2>
-    <div class="skills-grid">
-      <div class="card"><h3>Automation Tools</h3><p>Selenium, Playwright, Cypress, WebDriverIO, Cucumber (BDD)</p></div>
-      <div class="card"><h3>Languages</h3><p>Java, JavaScript, TypeScript, Python</p></div>
-      <div class="card"><h3>Testing & Cloud</h3><p>Postman, SoapUI, Azure DevOps, GitHub, AWS Testing</p></div>
+    <div class="grid-3">
+      <div class="card">
+        <h3>UI Automation — E2E</h3>
+        <p class="muted">Robust, maintainable frameworks (POM, BDD/TDD). Parallel runs, flaky test reduction, CI reporting.</p>
+      </div>
+      <div class="card">
+        <h3>API Testing & Validation</h3>
+        <p class="muted">Contract & regression testing with Rest Assured, Postman, SoapUI. Auth, schema, and performance baselines.</p>
+      </div>
+      <div class="card">
+        <h3>CI/CD & Quality Gates</h3>
+        <p class="muted">Azure DevOps pipelines, gating policies, PR checks, and test analytics for rapid feedback.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Resume Section -->
-  <section id="resume">
-    <h2 class="section-title">Download My Resume</h2>
-    <div class="card" style="text-align:center; padding:40px;">
-      <p class="muted">Get a detailed view of my professional journey, skills, and work experience.</p>
-      <p>
-        <a href="Resume_Manish_2024 (1).pdf" download class="btn primary">
-          📄 Click here to Download Resume
-        </a>
-      </p>
+<!-- Experience -->
+<section id="experience">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="title">Experience</h2><div class="sub">Responsibilities & impact</div>
     </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
     <div class="card">
-      <p>Email: <a href="mailto:chourasiamanish1993@gmail.com">chourasiamanish1993@gmail.com</a></p>
-      <p>Phone: <a href="tel:+919940314208">+91 99403 14208</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/manish-k-271b9a194" target="_blank">Profile</a></p>
-      <p>GitHub: <a href="https://github.com/chourasia93" target="_blank">chourasia93</a></p>
+      <ul class="timeline">
+        <li class="tl-item">
+          <h4 class="tl-title">Test Scripts Creation (Functional + API) & Integration Testing</h4>
+          <div class="muted">Regression & end-to-end coverage across two products.</div>
+        </li>
+        <li class="tl-item">
+          <h4 class="tl-title">Framework Design & Migration</h4>
+          <div class="muted">Built POM frameworks from scratch; migrated legacy suites to modern stacks.</div>
+        </li>
+        <li class="tl-item">
+          <h4 class="tl-title">API Testing</h4>
+          <div class="muted">Rest Assured, SOAP UI & Postman — multi-endpoint validation and regression packs.</div>
+        </li>
+        <li class="tl-item">
+          <h4 class="tl-title">CI/CD & Project Management</h4>
+          <div class="muted">Azure DevOps pipelines, Jira/Rally iteration tasks, PR reviews & merges.</div>
+        </li>
+        <li class="tl-item">
+          <h4 class="tl-title">UI Automation</h4>
+          <div class="muted">Selenium (Java/JS), Playwright, Cypress, WebdriverIO; BrowserStack mobile testing.</div>
+        </li>
+        <li class="tl-item">
+          <h4 class="tl-title">Quality Leadership</h4>
+          <div class="muted">Daily team discussions, retrospectives, and action plans to drive quality.</div>
+        </li>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <p>© <span id="year"></span> Manish Kumar Chourasia | Built with 💙</p>
-  </footer>
+<!-- Skills -->
+<section id="skills">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="title">Skills & Expertise</h2><div class="sub">Tools, languages & platforms</div>
+    </div>
+    <div class="skills">
+      <div class="card">
+        <h3>Automation Tools</h3>
+        <div class="skill-tags">
+          <span class="tag">Selenium</span><span class="tag">Playwright</span><span class="tag">Cypress</span>
+          <span class="tag">WebdriverIO</span><span class="tag">Cucumber (BDD)</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Languages</h3>
+        <div class="skill-tags">
+          <span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">Python</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Testing & Cloud</h3>
+        <div class="skill-tags">
+          <span class="tag">Postman</span><span class="tag">SoapUI</span><span class="tag">Azure DevOps</span>
+          <span class="tag">Git/GitHub</span><span class="tag">MongoDB</span><span class="tag">AWS (S3/APIs)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<!-- Projects / Portfolio -->
+<section id="projects">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="title">Digital Product Showcases</h2>
+      <div class="sub">
+        <div class="filters" id="filters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="ui">UI Automation</button>
+          <button class="filter" data-filter="api">API</button>
+          <button class="filter" data-filter="framework">Frameworks</button>
+        </div>
+      </div>
+    </div>
 
+    <div class="projects" id="grid">
+      <!-- Sample cards (replace thumbnails/text as you get real projects) -->
+      <div class="card proj" data-cat="ui"><div class="thumb">Selenium Suite</div><h4>Retail Checkout E2E</h4><p>Reduced regressions by 35% via stable selectors & retries.</p></div>
+      <div class="card proj" data-cat="api"><div class="thumb">REST Assured</div><h4>Payments API Coverage</h4><p>Contract + regression packs, 180+ endpoints.</p></div>
+      <div class="card proj" data-cat="framework"><div class="thumb">POM + Playwright</div><h4>Greenfield Framework</h4><p>From scratch with fixtures, reporters & CI.</p></div>
+      <div class="card proj" data-cat="ui"><div class="thumb">WebdriverIO</div><h4>Order Tracking UI</h4><p>Parallel runs; 4× faster cycle time.</p></div>
+      <div class="card proj" data-cat="api"><div class="thumb">Postman</div><h4>Auth & Schemas</h4><p>Reusable collections, environment gating.</p></div>
+      <div class="card proj" data-cat="framework"><div class="thumb">Cucumber BDD</div><h4>BDD Migration</h4><p>Readable specs for stakeholders; living docs.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="title">What People Say</h2><div class="sub">A few kind words from collaborators</div>
+    </div>
+    <div class="testimonials">
+      <div class="t-wrap card">
+        <div class="t-track" id="tTrack">
+          <div class="t-card">
+            <h3>“Reliable & fast”</h3>
+            <p class="muted">Manish set up CI with quality gates and stabilized our flaky suite. Releases are smoother now.</p>
+            <p><strong>— Engineering Manager, FinTech</strong></p>
+          </div>
+          <div class="t-card">
+            <h3>“Great framework design”</h3>
+            <p class="muted">He built a clean POM framework with Playwright; onboarding new QAs became effortless.</p>
+            <p><strong>— QA Lead, E-commerce</strong></p>
+          </div>
+          <div class="t-card">
+            <h3>“Thinks end-to-end”</h3>
+            <p class="muted">Deep understanding of both UI & API. We caught critical defects before prod.</p>
+            <p><strong>— Product Owner, Insurance</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="t-ctrl" id="dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="title">Contact</h2><div class="sub">Let’s build quality at speed</div>
+    </div>
+    <div class="contact-grid">
+      <div class="card">
+        <h3>Get in touch</h3>
+        <p>Email: <a href="mailto:chourasiamanish1993@gmail.com">chourasiamanish1993@gmail.com</a></p>
+        <p>Phone: <a href="tel:+919940314208">+91-99403-14208</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/manish-k-271b9a194" target="_blank">/in/manish-k-271b9a194</a></p>
+        <p>GitHub: <a href="https://github.com/chourasia93" target="_blank">@chourasia93</a></p>
+        <div style="margin-top:12px">
+          <a class="btn primary" href="Resume_Manish_2024 (1).pdf" download>Download Resume</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Upload Your Resume</h3>
+        <p class="muted">Recruiters can attach their CV here. (Demo-only; replace with a backend endpoint to receive files.)</p>
+        <div class="upload">
+          <input id="file" type="file" accept=".pdf,.doc,.docx"/>
+          <div id="uploadMsg" class="muted" style="margin-top:8px"></div>
+          <div style="margin-top:12px">
+            <button id="fakeUpload" class="btn ghost">Upload</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Manish Kumar Chourasia • Built with HTML, CSS & a little JS
+</footer>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Portfolio filters
+  const filters = document.querySelectorAll('.filter');
+  const cards = document.querySelectorAll('.proj');
+  filters.forEach(f=>{
+    f.addEventListener('click', ()=>{
+      filters.forEach(x=>x.classList.remove('active'));
+      f.classList.add('active');
+      const sel = f.dataset.filter;
+      cards.forEach(c=>{
+        const show = sel==='all' || c.dataset.cat===sel;
+        c.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  // Testimonials slider (simple)
+  const track = document.getElementById('tTrack');
+  const dots = [...document.querySelectorAll('#dots .dot')];
+  let idx = 0;
+  function go(i){
+    idx = (i + dots.length) % dots.length;
+    track.style.transform = `translateX(-${idx*100}%)`;
+    dots.forEach((d,j)=>d.classList.toggle('active', j===idx));
+  }
+  dots.forEach((d,i)=>d.addEventListener('click', ()=>go(i)));
+  setInterval(()=>go(idx+1), 5000);
+
+  // Fake upload (front-end only)
+  const file = document.getElementById('file');
+  const msg = document.getElementById('uploadMsg');
+  document.getElementById('fakeUpload').addEventListener('click', ()=>{
+    if(!file.files.length){ msg.textContent = 'Please choose a file first.'; return; }
+    msg.textContent = 'Thanks! (Demo) Replace with a server endpoint to actually receive the file.';
+  });
+</script>
 </body>
 </html>
