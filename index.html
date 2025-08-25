@@ -3,37 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio - Manish Chourasia</title>
+  <title>Portfolio - Manish Kumar Chourasia</title>
   <style>
     :root {
       --accent: #4fd1c5;
       --accent-2: #63b3ed;
-      --border: #e2e8f0;
-      --bg: #f7fafc;
+      --bg: #f0f4f8;
+      --card-bg: #ffffff;
       --text: #2d3748;
       --heading: #1a202c;
     }
 
     body {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg);
+      font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(135deg, #f7fafc, #edf2f7);
       color: var(--text);
       line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
     }
 
-    header {
+    .hero {
+      background: var(--card-bg);
+      padding: 3rem 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
       text-align: center;
-      padding: 4rem 1rem 2rem;
+      max-width: 640px;
+      width: 100%;
+      animation: fadeInUp 1s ease;
     }
 
     .pfp {
-      width: 220px;
-      height: 220px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      overflow: hidden; /* Makes image circular */
-      border: 2px solid var(--border);
-      box-shadow: 0 12px 40px rgba(79, 209, 197, 0.2);
+      overflow: hidden;
+      border: 4px solid white;
+      box-shadow: 0 8px 30px rgba(79, 209, 197, 0.4);
       margin: 0 auto 1.5rem;
       position: relative;
     }
@@ -41,7 +52,7 @@
     .pfp img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Ensures photo fills circle */
+      object-fit: cover;
       display: block;
     }
 
@@ -50,54 +61,67 @@
       position: absolute;
       inset: -12px;
       border-radius: 50%;
-      filter: blur(18px);
+      filter: blur(20px);
       background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent));
       opacity: .35;
       z-index: -1;
+      animation: rotate 6s linear infinite;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
       color: var(--heading);
     }
 
-    header p {
-      font-size: 1.2rem;
-      color: var(--text);
+    p {
+      font-size: 1.1rem;
+      color: #4a5568;
+      margin-bottom: 2rem;
     }
 
     .resume-link {
-      margin-top: 1.5rem;
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
+      padding: 0.85rem 2rem;
       border-radius: 9999px;
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
       color: white;
       font-weight: 600;
       text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-block;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 6px 20px rgba(79, 209, 197, 0.3);
     }
 
     .resume-link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(79, 209, 197, 0.35);
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 10px 28px rgba(99, 179, 237, 0.4);
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes rotate {
+      from {transform: rotate(0deg);}
+      to {transform: rotate(360deg);}
     }
   </style>
 </head>
 <body>
-  <header>
+  <section class="hero">
     <!-- Profile Photo in Circular Frame -->
     <div class="pfp">
       <img src="https://i.postimg.cc/bJQ1S8B3/Whats-App-Image-2025-08-25-at-3-06-18-PM.jpg" alt="Profile Photo of Manish Kumar Chourasia">
     </div>
+
     <h1>Manish Kumar Chourasia</h1>
     <p>QA Automation Engineer | Passionate about building efficient test frameworks</p>
 
     <!-- Resume Download Link -->
-    <a class="resume-link" href="Resume_Manish_2024 (1).pdf" download>
-      Download Resume
+    <a class="resume-link" href="https://i.postimg.cc/s2YhVWg1/Resume-Manish-2024-1.png" download>
+      📄 Download Resume
     </a>
-  </header>
+  </section>
 </body>
 </html>
