@@ -12,166 +12,157 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg-1: #f7f9fc;
-      --bg-2: #eef4fb;
-      --bg-3: #f8fbff;
-      --accent: #5b7cfa;
-      --accent-2: #38b2ac;
-      --text: #122029;
-      --muted: #55606a;
-      --card: #ffffff;
-      --border: rgba(2,6,23,0.06);
-      --glow: 0 8px 30px rgba(91,124,250,0.16);
-      --radius: 14px;
-      --maxw: 1100px;
-      --container-pad: 20px;
+    :root{
+      /* THEME — purple base + amber accent */
+      --bg-1:#f4f0ff;       /* soft lavender */
+      --bg-2:#ede9fe;       /* light indigo */
+      --bg-3:#faf5ff;       /* pink-lavender */
+      --accent:#6d5cff;     /* brand purple */
+      --accent-2:#f59e0b;   /* amber / orange */
+      --text:#0f172a;       /* slate-900 */
+      --muted:#475569;      /* slate-600 */
+      --card:#ffffff;
+      --border:rgba(2,6,23,0.08);
+      --glow:0 12px 34px rgba(109,92,255,.25);
+      --radius:16px;
+      --maxw:1100px;
+      --container-pad:20px;
     }
 
-    /* Base reset */
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color: var(--text);
-      background: linear-gradient(160deg, var(--bg-1), var(--bg-2) 50%, var(--bg-3));
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height: 1.5;
+    /* Reset / base */
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      color:var(--text);
+      /* soft purple background with playful tints */
+      background:
+        radial-gradient(600px 320px at 10% -10%, rgba(125, 90, 255,.18) 0%, transparent 70%),
+        radial-gradient(700px 360px at 110% 0%, rgba(245, 158, 11,.18) 0%, transparent 65%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+      background-attachment: fixed;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
     }
+    img{max-width:100%;display:block}
+    a{color:var(--accent);text-decoration:none}
+    a:hover,a:focus{color:var(--accent-2);text-decoration:underline;outline:none}
 
-    img { max-width: 100%; display: block; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover, a:focus { text-decoration: underline; color: var(--accent-2); outline: none; }
+    /* Header / Nav */
+    header{
+      position:sticky; top:0; z-index:60;
+      background:rgba(255,255,255,.9);
+      border-bottom:1px solid var(--border);
+      backdrop-filter:blur(8px) saturate(1.05);
+    }
+    .nav{
+      max-width:var(--maxw); margin:0 auto;
+      padding:14px var(--container-pad);
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font:700 16px/1 Montserrat,Inter,sans-serif;color:var(--accent)}
+    .brand-logo{
+      width:30px;height:30px;border-radius:8px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:var(--glow);
+    }
+    nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0}
+    nav a{color:var(--text);font-weight:600;font-size:15px;opacity:.92}
+    nav a:hover{opacity:1;color:var(--accent)}
 
-    /* Header/Nav */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 60;
-      background: rgba(255,255,255,0.9);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(6px) saturate(1.05);
-    }
-    .nav {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 14px var(--container-pad);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; color: var(--accent); font-family: Montserrat, Inter, sans-serif; }
-    .brand-logo {
-      width: 34px; height: 34px; border-radius: 8px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: var(--glow);
-    }
-    nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; align-items:center; }
-    nav a { color: var(--text); font-weight: 600; font-size: 15px; opacity: 0.94; }
-    nav a:hover { color: var(--accent); opacity: 1; }
-
-    /* Section layout */
-    section { padding: 88px var(--container-pad); }
-    .container { max-width: var(--maxw); margin: 0 auto; }
-    .section-head { display:flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
-    .section-title { font-family: Montserrat, Inter, sans-serif; font-size: 28px; font-weight: 700; letter-spacing: .4px; margin: 0; }
-    .section-sub { color: var(--muted); font-size: 15px; margin: 0; }
+    /* Sections */
+    section{padding:88px var(--container-pad)}
+    .container{max-width:var(--maxw);margin:0 auto}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:28px}
+    .section-title{font:700 28px/1.2 Montserrat,Inter,sans-serif;letter-spacing:.4px;margin:0;background:linear-gradient(45deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .section-sub{color:var(--muted);font-size:15px;margin:0}
 
     /* Hero */
-    .hero { padding-top: 56px; padding-bottom: 40px; }
-    .hero-wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 36px; align-items: center; }
-    .hero h1 { font-family: Montserrat, Inter, sans-serif; font-size: 40px; margin: 0 0 12px; line-height: 1.06; color: var(--text); }
-    .tagline { color: var(--muted); font-size: 17px; margin-bottom: 18px; }
-    .cta { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
-    .btn {
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 16px; border-radius:12px; border:1px solid var(--border);
-      background: #fff; color:var(--text); font-weight:600; cursor:pointer;
-      box-shadow: 0 2px 6px rgba(2,6,23,0.04);
-      transition: transform .12s ease, box-shadow .12s ease;
-      text-decoration: none;
+    .hero{padding-top:64px;padding-bottom:40px;position:relative}
+    /* subtle hero blob */
+    .hero::before{
+      content:"";position:absolute;inset:auto 0 0 0;height:220px;z-index:-1;
+      background:linear-gradient(180deg,rgba(109,92,255,.18),rgba(245,158,11,.14));
+      filter:blur(30px);
     }
-    .btn:focus { box-shadow: 0 0 0 4px rgba(91,124,250,0.12); outline: none; }
-    .btn:hover { transform: translateY(-3px); box-shadow: var(--glow); }
-    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; border: none; }
+    .hero-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+    .hero h1{font:800 40px/1.06 Montserrat,Inter,sans-serif;margin:0 0 12px;color:var(--text)}
+    .hero h1 span{background:linear-gradient(45deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .tagline{color:var(--muted);font-size:17px;margin-bottom:18px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:11px 18px;border-radius:999px;border:1px solid var(--border);
+      background:#fff;color:var(--text);font-weight:700;cursor:pointer;
+      box-shadow:0 2px 6px rgba(2,6,23,.04);transition:transform .12s ease, box-shadow .12s ease;
+      text-decoration:none
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(2,6,23,.12)}
+    .btn.primary{border:none;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;box-shadow:var(--glow)}
+    .btn.primary:hover{box-shadow:0 16px 36px rgba(109,92,255,.35)}
 
-    /* Profile photo */
-    .pfp {
-      width: 220px; height: 220px; border-radius: 50%;
-      overflow: hidden; border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01));
-      box-shadow: 0 16px 40px rgba(2,6,23,0.06);
-      margin-left: auto; margin-right: auto; position: relative;
-      display: flex; align-items: center; justify-content: center;
+    /* Profile picture */
+    .pfp{
+      width:220px;height:220px;border-radius:50%;overflow:hidden;
+      border:1px solid var(--border);background:#fff;
+      box-shadow:0 16px 40px rgba(2,6,23,.06);margin-left:auto;margin-right:auto
     }
-    .pfp img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+    .pfp img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 
     /* Cards */
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: 0 6px 18px rgba(2,6,23,0.03); }
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:0 6px 18px rgba(2,6,23,.03)}
 
-    /* About grid */
-    .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 20px; }
-    .highlights { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
-    .chip {
-      display:inline-flex; align-items:center; gap:8px; padding:8px 12px;
-      border-radius:999px; border:1px solid var(--border); background:#f3f7fb; color:var(--text); font-size:13px;
-    }
+    /* About */
+    .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+    .highlights{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--border);background:#f2f0ff;color:var(--text);font-size:13px}
 
     /* Timeline */
-    .timeline { position: relative; margin: 14px 0 0 0; padding-left: 26px; list-style: none; }
-    .timeline::before {
-      content: ""; position: absolute; left: 6px; top: 0; bottom: 0; width: 2px;
-      background: linear-gradient(var(--accent), var(--accent-2)); opacity: .7;
-    }
-    .tl-item { position: relative; margin: 0 0 18px 0; padding-left: 12px; }
-    .tl-item::before {
-      content: ""; position: absolute; left: -18px; top: 6px; width: 14px; height: 14px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-radius: 50%;
-      box-shadow: 0 0 0 4px rgba(91,124,250,0.08);
-    }
+    .timeline{position:relative;margin:14px 0 0 0;padding-left:26px;list-style:none}
+    .timeline::before{content:"";position:absolute;left:6px;top:0;bottom:0;width:2px;background:linear-gradient(var(--accent),var(--accent-2));opacity:.8}
+    .tl-item{position:relative;margin:0 0 18px 0;padding-left:12px}
+    .tl-item::before{content:"";position:absolute;left:-18px;top:6px;width:14px;height:14px;background:linear-gradient(135deg,var(--accent),var(--accent-2));border-radius:50%;box-shadow:0 0 0 4px rgba(109,92,255,.12)}
 
     /* Skills */
-    .skills-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .skill-list { display:flex; flex-wrap:wrap; gap:10px; }
-    .progress { margin-top: 10px; height: 10px; background: #eef4fb; border-radius: 999px; overflow:hidden; border: 1px solid var(--border); }
-    .bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--accent-2)); animation: fill 1.6s ease forwards; }
-    @keyframes fill { to { width: var(--pct, 100%); } }
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .skill-list{display:flex;flex-wrap:wrap;gap:10px}
+    .progress{margin-top:10px;height:10px;background:#ede9fe;border-radius:999px;overflow:hidden;border:1px solid var(--border)}
+    .bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));animation:fill 1.2s ease forwards}
+    @keyframes fill{to{width:var(--pct,100%)}}
 
-    /* Services & Projects */
-    .services { display:grid; grid-template-columns: repeat(2, 1fr); gap:16px; }
-    .projects { display:grid; grid-template-columns: repeat(2, 1fr); gap:16px; }
-    .coming { text-align:center; padding:34px 16px; border:1px dashed var(--border); border-radius: var(--radius); color: var(--muted); background:#fbfdff; }
+    /* Services / Projects */
+    .services{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .coming{text-align:center;padding:34px 16px;border:1px dashed var(--border);border-radius:var(--radius);color:var(--muted);background:#f9f7ff}
 
     /* Contact */
-    .contact-grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
-    .contact-info a { display:inline-flex; align-items:center; gap:10px; padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:#f3f7fb; color:var(--text); font-weight:600; margin-right:8px; margin-top:8px; }
-    form { display:grid; gap:12px; }
-    label { font-size:14px; color:var(--muted); display:block; }
-    input, textarea { width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:#fbfdff; color:var(--text); font:inherit; }
-    textarea { min-height:120px; resize:vertical; }
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .contact-info a{display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:#f4f0ff;color:var(--text);font-weight:600;margin-right:8px;margin-top:8px}
+    form{display:grid;gap:12px}
+    label{font-size:14px;color:var(--muted);display:block}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#fff;color:var(--text);font:inherit}
+    textarea{min-height:120px;resize:vertical}
 
     /* Footer */
-    footer { padding:36px var(--container-pad); border-top:1px solid var(--border); color:var(--muted); text-align:center; background: transparent; }
+    footer{padding:40px var(--container-pad);border-top:1px solid var(--border);color:var(--muted);text-align:center;background:transparent}
 
     /* Utilities */
-    .muted { color:var(--muted); }
-    h3 { margin-top:0; margin-bottom:8px; color:var(--text); }
-    ul { padding-left: 18px; margin: 8px 0; }
+    .muted{color:var(--muted)}
+    h3{margin-top:0;margin-bottom:8px;color:var(--text)}
+    ul{padding-left:18px;margin:8px 0}
 
     /* Responsive */
-    @media (max-width: 980px) {
-      .hero-wrap, .about-grid, .contact-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-      .services, .projects { grid-template-columns: 1fr; }
-      header .nav { padding-left: 14px; padding-right: 14px; }
+    @media (max-width:980px){
+      .hero-wrap,.about-grid,.contact-grid{grid-template-columns:1fr}
+      .skills-grid{grid-template-columns:1fr 1fr}
+      .services,.projects{grid-template-columns:1fr}
+      header .nav{padding-left:14px;padding-right:14px}
     }
-    @media (max-width: 640px) {
-      .skills-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 32px; }
-      .pfp { width: 180px; height: 180px; }
+    @media (max-width:640px){
+      .skills-grid{grid-template-columns:1fr}
+      .hero h1{font-size:32px}
+      .pfp{width:180px;height:180px}
     }
   </style>
 </head>
@@ -199,7 +190,7 @@
   <section id="home" class="hero" aria-labelledby="hero-title">
     <div class="container hero-wrap">
       <div>
-        <h1 id="hero-title">Automation Testing Specialist<br><span style="font-weight:600; color:var(--muted); font-size:18px;">UI Automation · Backend API Testing · Framework Design</span></h1>
+        <h1 id="hero-title">Automation Testing Specialist <br><span>UI Automation · Backend API Testing · Framework Design</span></h1>
         <p class="tagline">Focused, goal-oriented professional with 5+ years of experience delivering robust UI automation, backend API validation, and CI-driven test frameworks.</p>
         <div class="cta" role="group" aria-label="Primary actions">
           <a class="btn primary" href="#projects">View My Work</a>
@@ -212,7 +203,7 @@
       </div>
 
       <div>
-        <div class="pfp" aria-hidden="false" aria-label="Profile photo of Manish Chourasia">
+        <div class="pfp" aria-label="Profile photo of Manish Chourasia">
           <img src="https://i.postimg.cc/L8DgsfzQ/image25.jpg" alt="Profile photo of Manish Chourasia">
         </div>
       </div>
@@ -262,36 +253,31 @@
     <div class="container">
       <div class="section-head">
         <h2 id="exp-title" class="section-title">Experience</h2>
-        <p class="section-sub">Responsibilities & areas of impact</p>
+        <p class="section-sub">Responsibilities &amp; areas of impact</p>
       </div>
 
       <div class="card">
         <ul class="timeline" aria-hidden="false">
           <li class="tl-item">
             <h4>Automated test script development</h4>
-            <p class="muted">Built automated suites (UI, backend API & integration) to ensure regression and end-to-end coverage across products.</p>
+            <p class="muted">Built automated suites (UI, backend API &amp; integration) to ensure regression and end-to-end coverage across products.</p>
           </li>
-
           <li class="tl-item">
-            <h4>Framework design & migration</h4>
+            <h4>Framework design &amp; migration</h4>
             <p class="muted">Designed Page Object Model frameworks; migrated legacy suites and improved maintainability and speed.</p>
           </li>
-
           <li class="tl-item">
             <h4>API testing</h4>
-            <p class="muted">Rest Assured automation, Postman & SoapUI manual execution, schema validation, auth flows and data validation.</p>
+            <p class="muted">Rest Assured automation, Postman &amp; SoapUI manual execution, schema validation, auth flows and data validation.</p>
           </li>
-
           <li class="tl-item">
-            <h4>CI/CD & project management</h4>
+            <h4>CI/CD &amp; project management</h4>
             <p class="muted">Azure DevOps pipelines, version control, status reporting, Jira/Rally for iteration planning and PR management.</p>
           </li>
-
           <li class="tl-item">
             <h4>UI automation</h4>
-            <p class="muted">Selenium (Java/JS), WebdriverIO, Playwright, Cypress; cross-browser & BrowserStack mobile testing.</p>
+            <p class="muted">Selenium (Java/JS), WebdriverIO, Playwright, Cypress; cross-browser &amp; BrowserStack mobile testing.</p>
           </li>
-
           <li class="tl-item">
             <h4>Quality leadership</h4>
             <p class="muted">Daily standups, retrospectives, refinement sessions, mentoring and defect triage.</p>
@@ -311,24 +297,12 @@
 
       <div class="card">
         <ul class="timeline">
-          <li class="tl-item">
-            <p class="muted">Implemented automated reporting capabilities within stories and tasks; authored automation test cases using Selenium, Java & Cypress.</p>
-          </li>
-          <li class="tl-item">
-            <p class="muted">Coordinated with clients throughout the testing lifecycle and ensured timely, high-quality deliverables.</p>
-          </li>
-          <li class="tl-item">
-            <p class="muted">Developed Mocha/Chai frameworks and suggested improvements to streamline automation workflows.</p>
-          </li>
-          <li class="tl-item">
-            <p class="muted">Architected frameworks for new projects and migrated existing ones; executed functional, API and integration tests.</p>
-          </li>
-          <li class="tl-item">
-            <p class="muted">Collected and analysed defect data to produce actionable quality reports and drive resolution.</p>
-          </li>
-          <li class="tl-item">
-            <p class="muted">Assessed operational feasibility, defined requirements, and supported system specification decisions for test automation solutions.</p>
-          </li>
+          <li class="tl-item"><p class="muted">Implemented automated reporting capabilities within stories and tasks; authored automation test cases using Selenium, Java &amp; Cypress.</p></li>
+          <li class="tl-item"><p class="muted">Coordinated with clients throughout the testing lifecycle and ensured timely, high-quality deliverables.</p></li>
+          <li class="tl-item"><p class="muted">Developed Mocha/Chai frameworks and suggested improvements to streamline automation workflows.</p></li>
+          <li class="tl-item"><p class="muted">Architected frameworks for new projects and migrated existing ones; executed functional, API and integration tests.</p></li>
+          <li class="tl-item"><p class="muted">Collected and analysed defect data to produce actionable quality reports and drive resolution.</p></li>
+          <li class="tl-item"><p class="muted">Assessed operational feasibility, defined requirements, and supported system specification decisions for test automation solutions.</p></li>
         </ul>
       </div>
     </div>
@@ -338,14 +312,14 @@
   <section id="skills" aria-labelledby="skills-title">
     <div class="container">
       <div class="section-head">
-        <h2 id="skills-title" class="section-title">Skills & Expertise</h2>
-        <p class="section-sub">Tools, languages & platforms</p>
+        <h2 id="skills-title" class="section-title">Skills &amp; Expertise</h2>
+        <p class="section-sub">Tools, languages &amp; platforms</p>
       </div>
 
       <div class="skills-grid">
         <div class="card">
           <h3>Automation Tools</h3>
-          <div class="skill-list" aria-hidden="false">
+          <div class="skill-list">
             <span class="chip">Selenium</span>
             <span class="chip">Cucumber (BDD)</span>
             <span class="chip">Playwright</span>
@@ -353,7 +327,6 @@
             <span class="chip">WebDriverIO</span>
             <span class="chip">AI Tools</span>
           </div>
-
           <div class="progress" title="Selenium"><div class="bar" style="--pct:95%"></div></div>
           <div class="progress" title="Playwright"><div class="bar" style="--pct:85%"></div></div>
         </div>
@@ -366,13 +339,12 @@
             <span class="chip">TypeScript (Basic)</span>
             <span class="chip">Python</span>
           </div>
-
           <div class="progress" title="Java"><div class="bar" style="--pct:90%"></div></div>
           <div class="progress" title="JavaScript"><div class="bar" style="--pct:80%"></div></div>
         </div>
 
         <div class="card">
-          <h3>Testing & Cloud</h3>
+          <h3>Testing &amp; Cloud</h3>
           <div class="skill-list">
             <span class="chip">TestNG</span>
             <span class="chip">Maven</span>
@@ -385,7 +357,6 @@
             <span class="chip">GitHub</span>
             <span class="chip">Accessibility (axe)</span>
           </div>
-
           <div class="progress" title="UI Automation"><div class="bar" style="--pct:85%"></div></div>
           <div class="progress" title="API Automation"><div class="bar" style="--pct:85%"></div></div>
         </div>
@@ -407,10 +378,9 @@
           <p class="muted">Design and implement robust, maintainable UI automation frameworks (POM, BDD/TDD) with reliable CI integration for rapid feedback and consistent releases.</p>
           <a class="btn primary" href="#contact">Request a consultation</a>
         </div>
-
         <div class="card">
-          <h3>Backend API Testing & Validation</h3>
-          <p class="muted">Comprehensive API test coverage using Rest Assured, Postman & SoapUI; schema validation, auth flows, and regression suites with CI integration.</p>
+          <h3>Backend API Testing &amp; Validation</h3>
+          <p class="muted">Comprehensive API test coverage using Rest Assured, Postman &amp; SoapUI; schema validation, auth flows, and regression suites with CI integration.</p>
           <a class="btn primary" href="#contact">Start a project</a>
         </div>
       </div>
@@ -422,21 +392,21 @@
     <div class="container">
       <div class="section-head">
         <h2 id="projects-title" class="section-title">Portfolio / Projects</h2>
-        <p class="section-sub">Case studies & examples</p>
+        <p class="section-sub">Case studies &amp; examples</p>
       </div>
 
       <div class="projects">
         <div class="card coming">
           <h3>Projects</h3>
           <p>Multiple automation frameworks, CI pipelines, and end-to-end test suites will be published here.</p>
-          <ul style="text-align:left; margin:12px 0 0 18px;">
-            <li>UI Automation E2E — Selenium & Java</li>
-            <li>Backend API Test & Data Validation</li>
-            <li>GitHub code & CI pipelines</li>
+          <ul style="text-align:left;margin:12px 0 0 18px">
+            <li>UI Automation E2E — Selenium &amp; Java</li>
+            <li>Backend API Test &amp; Data Validation</li>
+            <li>GitHub code &amp; CI pipelines</li>
             <li>Azure DevOps pipelines</li>
             <li>Rest Assured suites</li>
-            <li>Postman & SOAP UI API collections</li>
-            <li>Agile process improvements & AI-assisted test design</li>
+            <li>Postman &amp; SOAP UI API collections</li>
+            <li>Agile process improvements &amp; AI-assisted test design</li>
           </ul>
         </div>
 
@@ -444,10 +414,10 @@
           <h3>Suggested Case Study Outline</h3>
           <ul>
             <li><strong>Context:</strong> UI Automation - Selenium</li>
-            <li><strong>Business goals:</strong> Quality, speed & risk reduction</li>
+            <li><strong>Business goals:</strong> Quality, speed &amp; risk reduction</li>
             <li><strong>Approach:</strong> Tools, architecture (POM), Test Design</li>
             <li><strong>Execution:</strong> CI setup (Azure DevOps), environments, test data, E2E checks</li>
-            <li><strong>Impact:</strong> Coverage, defect reduction, performance & accessibility checks</li>
+            <li><strong>Impact:</strong> Coverage, defect reduction, performance &amp; accessibility checks</li>
           </ul>
         </div>
       </div>
@@ -465,8 +435,8 @@
       <div class="contact-grid">
         <div class="card contact-info">
           <h3>Get in touch</h3>
-          <p class="muted">I'm open to opportunities and collaborations in automation & API testing.</p>
-          <div style="margin-top:12px;">
+          <p class="muted">I'm open to opportunities and collaborations in automation &amp; API testing.</p>
+          <div style="margin-top:12px">
             <a href="mailto:chourasiamanish1993@gmail.com">📧 chourasiamanish1993@gmail.com</a>
             <a href="https://www.linkedin.com/in/manish-k-271b9a194" target="_blank" rel="noreferrer">LinkedIn</a>
             <a href="https://github.com/chourasia93" target="_blank" rel="noreferrer">GitHub</a>
@@ -475,7 +445,7 @@
 
         <div class="card">
           <h3>Quick message</h3>
-          <!-- Note: mailto form uses client email app. For production, replace with backend endpoint. -->
+          <!-- mailto fallback. For production, swap to a backend handler -->
           <form action="mailto:chourasiamanish1993@gmail.com" method="post" enctype="text/plain">
             <label>
               Name
@@ -503,14 +473,12 @@
   </footer>
 
   <script>
-    // set current year
+    // Update year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // simple progressive enhancement: set bar widths once DOM loads
-    window.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('.bar').forEach(function(el) {
+    // Fill progress bars
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.bar').forEach(el => {
         const pct = el.style.getPropertyValue('--pct') || '80%';
-        // ensure percent value ends with %
         el.style.width = pct.trim();
       });
     });
